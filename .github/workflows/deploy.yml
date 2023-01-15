@@ -23,9 +23,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18.12.1
-      - name: Install Packages and Build Application
+      - name: Install Packages
         run:
           npm install
+      - name: Build Application
+        run:
           npm build
       - name: Deploy
         uses: actions/deploy-pages@v1
