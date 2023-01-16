@@ -5,7 +5,7 @@ on:
       - master
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,7 +26,12 @@ jobs:
       - name: Build Application
         run:
           npm run build
-      - name: Deploy
-        uses: actions/deploy-pages@v1
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: _/site
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
