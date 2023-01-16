@@ -4,9 +4,6 @@ on:
     branches:
       - master
 
-env:
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
 permissions:
   contents: read
   pages: write
@@ -31,4 +28,5 @@ jobs:
           npm run build
       - name: Deploy
         uses: actions/deploy-pages@v1
-        
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
