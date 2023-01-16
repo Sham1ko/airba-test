@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: "/airba-test/"
+    publicPath: '/airba-test/'
 }

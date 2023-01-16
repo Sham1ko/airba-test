@@ -4,17 +4,17 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: '/airba-test/',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue'),
     },
     {
-      path: '/about',
+      path: '/airba-test/about',
       name: 'about',
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/:id',
+      path: '/airba-test/:id',
       name: 'details',
       component: () => import('../views/DetailView.vue')
     }
