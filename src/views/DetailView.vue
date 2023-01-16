@@ -10,6 +10,10 @@
         </nav>
         <div class="mt-3">
             <p>Name: {{ drink.strDrink }}</p>
+            <p>I1: {{ drink.strIngredient1 }}</p>
+            <p>i2: {{ drink.strIngredient2 }}</p>
+            <p>i3: {{ drink.strIngredient3 }}</p>
+
         </div>
     </main>
 </template>

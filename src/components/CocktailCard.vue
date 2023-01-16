@@ -6,7 +6,7 @@
                 <h5 class="card-title">{{ drink.strDrink }}</h5>
                 <p class="card-text">{{ drink.strCategory }}</p>
                 <p class="card-text">{{ drink.strAlcoholic }}</p>
-                <RouterLink :to="'/' + drink.idDrink" class="btn btn-primary">Ингридиенты</RouterLink>
+                <RouterLink :to="'/airba-test/' + drink.idDrink" class="btn btn-primary">Ингридиенты</RouterLink>
             </div>
         </div>
     </div>
