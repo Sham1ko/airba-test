@@ -1,9 +1,11 @@
-@import './base.css';
+@import "./base.css";
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+}
 
-  font-weight: normal;
+body {
+  background: url("@/assets/cocktail-background.jpg") no-repeat center fixed;
+  background-size: cover;
+  height: 100%;
 }

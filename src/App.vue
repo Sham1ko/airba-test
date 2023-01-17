@@ -1,6 +1,6 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import CustomHeader from '@/components/CustomHeader.vue'
+import {RouterView} from "vue-router";
+import CustomHeader from "@/components/CustomHeader.vue";
 </script>
 
 <template>
@@ -8,6 +8,4 @@ import CustomHeader from '@/components/CustomHeader.vue'
   <RouterView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
