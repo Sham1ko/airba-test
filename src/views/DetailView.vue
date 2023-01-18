@@ -1,13 +1,13 @@
 <template>
   <main class="details-view container bg-light rounded">
     <div class="row">
-      <div class="col w-50 p-5">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-6 col-xl-6 col-xxl-6 p-5">
         <img
           :src="drink.strDrinkThumb"
           class="img-thumbnail"
           alt="Drink Image" />
       </div>
-      <div class="col w-50 p-5">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 col-xxl-6 p-5">
         <h3 class="fw-bold">{{ drink.strDrink }}</h3>
         <p>Категория: {{ drink.strCategory }}</p>
         <p>Алкогольность: {{ drink.strAlcoholic }}</p>
