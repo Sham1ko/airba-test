@@ -1,5 +1,9 @@
 <template>
   <main class="home-view container">
+    <div
+      class="search-logo w-75 mx-auto text-white fs-1 text-center mb-5 fw-bold">
+      Search Cocktail
+    </div>
     <div class="search w-75 mx-auto mb-5">
       <div class="input-group mb-3">
         <input
@@ -15,7 +19,10 @@
           <button @click="getData()" type="button" class="btn btn-success mx-2">
             Поиск
           </button>
-          <button @click="getData()" type="button" class="btn btn-success mx-2">
+          <button
+            @click="randomCocktail()"
+            type="button"
+            class="btn btn-primary mx-2">
             Рандом
           </button>
         </div>
@@ -45,6 +52,12 @@ export default {
       let response = await fetch(url);
       this.data = await response.json();
     },
+    async randomCocktail() {
+      let url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+      let response = await fetch(url);
+      let randomDrink = await response.json();
+      this.$router.push(`/airba-test/${randomDrink.drinks[0].idDrink}`);
+    },
   },
   components: {CocktailCard},
 };
@@ -52,6 +65,6 @@ export default {
 
 <style>
 .home-view {
-  margin-top: 30vh;
+  margin-top: 22vh;
 }
 </style>

@@ -1,47 +1,93 @@
 <template>
-    <main class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <RouterLink to="/">Home</RouterLink>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ drink.strDrink }}</li>
-            </ol>
-        </nav>
-        <div class="mt-3">
-            <p>Name: {{ drink.strDrink }}</p>
-            <p>I1: {{ drink.strIngredient1 }}</p>
-            <p>i2: {{ drink.strIngredient2 }}</p>
-            <p>i3: {{ drink.strIngredient3 }}</p>
-
-        </div>
-    </main>
+  <main class="details-view container bg-light rounded">
+    <div class="row">
+      <div class="col w-50 p-5">
+        <img
+          :src="drink.strDrinkThumb"
+          class="img-thumbnail"
+          alt="Drink Image" />
+      </div>
+      <div class="col w-50 p-5">
+        <h3 class="fw-bold">{{ drink.strDrink }}</h3>
+        <p>Категория: {{ drink.strCategory }}</p>
+        <p>Алкогольность: {{ drink.strAlcoholic }}</p>
+        <h4>Ингридиенты</h4>
+        <ul>
+          <li v-if="drink.strIngredient1">
+            {{ drink.strIngredient1 }} - {{ drink.strMeasure1 }}
+          </li>
+          <li v-if="drink.strIngredient2">
+            {{ drink.strIngredient2 }} - {{ drink.strMeasure2 }}
+          </li>
+          <li v-if="drink.strIngredient3">
+            {{ drink.strIngredient3 }} - {{ drink.strMeasure3 }}
+          </li>
+          <li v-if="drink.strIngredient4">
+            {{ drink.strIngredient4 }} - {{ drink.strMeasure4 }}
+          </li>
+          <li v-if="drink.strIngredient5">
+            {{ drink.strIngredient5 }} - {{ drink.strMeasure5 }}
+          </li>
+          <li v-if="drink.strIngredient6">
+            {{ drink.strIngredient6 }} - {{ drink.strMeasure6 }}
+          </li>
+          <li v-if="drink.strIngredient7">
+            {{ drink.strIngredient7 }} - {{ drink.strMeasure7 }}
+          </li>
+          <li v-if="drink.strIngredient8">
+            {{ drink.strIngredient8 }} - {{ drink.strMeasure8 }}
+          </li>
+          <li v-if="drink.strIngredient9">
+            {{ drink.strIngredient9 }} - {{ drink.strMeasure9 }}
+          </li>
+          <li v-if="drink.strIngredient10">
+            {{ drink.strIngredient10 }} - {{ drink.strMeasure10 }}
+          </li>
+          <li v-if="drink.strIngredient11">
+            {{ drink.strIngredient11 }} - {{ drink.strMeasure11 }}
+          </li>
+          <li v-if="drink.strIngredient12">
+            {{ drink.strIngredient12 }} - {{ drink.strMeasure12 }}
+          </li>
+          <li v-if="drink.strIngredient13">
+            {{ drink.strIngredient13 }} - {{ drink.strMeasure13 }}
+          </li>
+          <li v-if="drink.strIngredient14">
+            {{ drink.strIngredient14 }} - {{ drink.strMeasure14 }}
+          </li>
+          <li v-if="drink.strIngredient15">
+            {{ drink.strIngredient15 }} - {{ drink.strMeasure15 }}
+          </li>
+        </ul>
+        <h4>Инструкция по приготовлению</h4>
+        <p>{{ drink.strInstructions }}</p>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import {RouterLink} from "vue-router";
 
 export default {
-    mounted() {
-        this.getDetailCocktail();
+  mounted() {
+    this.getDetailCocktail();
+  },
+  data() {
+    return {
+      drink: {},
+    };
+  },
+  methods: {
+    async getDetailCocktail() {
+      let url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.$route.params.id}`;
+      let response = await fetch(url);
+      let json = await response.json();
+      this.drink = await json.drinks[0];
     },
-    data() {
-        return {
-            drink: {}
-        };
-    },
-    methods: {
-        async getDetailCocktail() {
-            let url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.$route.params.id}`;
-            let response = await fetch(url);
-            let json = await response.json();
-            this.drink = await json.drinks[0];
-        }
-    },
-    components: { RouterLink }
-}
+  },
+  components: {RouterLink},
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
